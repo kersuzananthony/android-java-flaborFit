@@ -3,13 +3,13 @@ package com.kersuzan.flaborfit;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String EXTRA_DETAIL_ITEM_TITLE = "extra.item.title";
-    public static final String EXTRA_DETAIL_ITEM_IMAGE = "extra.item.image";
+    public static final String EXTRA_DETAIL_ITEM_TYPE = "extra.item.type";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,20 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private void loadDetailActivity(DetailType detailType) {
         Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
 
-        String title = "";
-        switch (detailType) {
-            case Weight:
-                title = "Weight";
-                break;
-            case Cardio:
-                title = "Cardio";
-                break;
-            case Yoga:
-                title = "Yoga";
-                break;
-        }
-
-        intent.putExtra(MainActivity.EXTRA_DETAIL_ITEM_TITLE, title);
+        Log.i("DetailVC", detailType.getTitle());
+        intent.putExtra(MainActivity.EXTRA_DETAIL_ITEM_TYPE, detailType);
 
         startActivity(intent);
     }
