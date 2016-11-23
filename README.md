@@ -1,2 +1,2 @@
 # android-java-flaborFit
-A single app for android
+A simple app for android
